@@ -1,0 +1,63 @@
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+      rel="stylesheet" type='text/css'>
+<ng-template #nothing1>
+    <th></th>
+</ng-template>
+<ng-template #nothing>
+    <p></p>
+</ng-template>
+<base href="/">
+<div class="row">
+    <div class="col-xs-12">
+        <h1 id="titleAddresses"><span>Addresses</span> by <span>AP LAB</span></h1>
+
+        <div class="search">
+            <input [(ngModel)]="searchText" (keyup)="OnSearchChange()" class="form-control search-input" placeholder="Search addresses">
+        </div>
+        <table class="responstable"  *ngIf="addresses">
+
+            <tr>
+                <th>User</th>
+                <th>Address1</th>
+                <th>Address2</th>
+                <th>Zip</th>
+                <th>Edit address</th>
+                <th>Delete address</th>
+            </tr>
+
+            <tr *ngFor="let address of addresses; let i = index">
+                <td>
+                    <h1 id="zip" *ngFor="let user of users; let k = index" class="spanUserCustom">
+                            <span *ngIf="user.userId === address.userId" class="spanUserCustom">
+                                {{user?.firstName}} {{user?.lastName}}
+                            </span>
+                    </h1>
+                </td>
+                <td *ngIf="address">{{address?.address1}}</td>
+                <td *ngIf="address">{{address?.address2}}</td>
+
+                <td  *ngIf="zips">
+                    <h1 id="zip" class="spanCustom" *ngFor="let zip of zips; let j = index">
+                            <span *ngIf="zip.zipId === address.zipId && zip" class="spanCustom">
+                                {{zip?.zipCode}}
+                            </span>
+                    </h1>
+                    
+                </td>
+                <td class="tdStyle">
+                    <a class="nav-link active " [routerLink]="['/addressesManager',address.addressId]">
+                        <i class="fa fa-pencil-square-o iconClassEdit" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td class="tdStyle">
+                    <a class="nav-link active" (click)="deleteAddress(address.addressId, i)">
+                        <i class="nav-link fa fa-trash-o iconClassDelete" >
+                        </i>
+                    </a>
+                </td>
+            </tr>
+
+        </table>
+        <button class=" btn btn-lg btn-success addButton" routerLink="/addressesManager"><i class="fa fa-plus"   aria-hidden="true" (click) ="newAddress()"></i>&emsp;New address</button>
+    </div>
+</div>

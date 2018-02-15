@@ -1,0 +1,48 @@
+﻿<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+      rel="stylesheet" type='text/css'>
+<ng-template #nothing1>
+    <th></th>
+</ng-template>
+<ng-template #nothing>
+    <p></p>
+</ng-template>
+<base href="/">
+<div class="row">
+    <div class="col-xs-12">
+        <h1 id="titleUsers"> <span>Users</span> by <span>AP LAB</span></h1>
+        <div class="search">
+            <input [(ngModel)]="searchText" (keyup)="OnSearchChange()" class="form-control search-input" placeholder="Search users">
+        </div>
+        <table class="responstable">
+
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username </th>
+                <th>Edit user</th>
+                <th>Delete user</th>
+            </tr>
+
+            <tr *ngFor="let user of users; let i = index">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.userName}}</td>
+                
+                <td class="tdStyle">
+                    <a class="nav-link active " [routerLink]="['/usersManager',user.userId]">
+                        <i class="fa fa-pencil-square-o iconClassEdit" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td class="tdStyle">
+                    <a class="nav-link active" (click)="deleteUser(user.userId,i)">
+                        <i class="nav-link fa fa-trash-o iconClassDelete">
+                        </i>
+                    </a>
+                </td>
+            </tr>
+
+        </table>
+        <button class=" btn btn-lg btn-success addButton" routerLink="/usersManager"><i class="fa fa-plus" aria-hidden="true"></i>&emsp;New user</button>
+
+    </div>
+</div>

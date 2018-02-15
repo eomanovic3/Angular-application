@@ -1,0 +1,46 @@
+﻿.jumbotron {
+    text-align: center;
+    border: 1px solid blue;
+}
+
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: none;
+    background-color: darkgrey !important;
+    border-radius: 20px !important;
+    color: black;
+}
+
+
+body {
+    margin: 0;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #D9E4E6;
+    border-radius:60px;
+}
+
+
+    .topnav a {
+        float: left;
+        color: #167F92;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+
+        .topnav a.active {
+            background-color: #167F92;
+            color: white;
+        }

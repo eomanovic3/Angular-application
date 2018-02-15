@@ -1,0 +1,1 @@
+{"version":3,"file":"county.model.js","sourceRoot":"","sources":["county.model.ts"],"names":[],"mappings":";;AAEA;IAKI,YAAmB,GAAY,EAAE,KAAc,EAAE,MAAc;QAC3D,IAAI,CAAC,EAAE,GAAG,GAAG,IAAI,IAAI,CAAC;QACtB,IAAI,CAAC,IAAI,GAAG,KAAK,IAAI,IAAI,CAAC;QAC1B,IAAI,CAAC,KAAK,GAAG,MAAM,IAAI,IAAI,CAAC;IAChC,CAAC;CAGJ;AAZD,wBAYC"}

@@ -1,0 +1,65 @@
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+<div style="text-align:center; padding-left:33%;">
+    <!---->
+    <div *ngIf='rForm'>
+        <form [formGroup]="rForm"  class="address-form" (ngSubmit)="onSubmit()">
+
+            <div class="form-container">
+                <div class="row columns">
+
+                    <div class="input-group" style="display: none;">
+                        <span class="input-group-addon" style="min-width:100px;"><i class="" aria-hidden="true">User Id</i></span>
+                        <input type="text" class="form-control" formControlName="userId" name="userId" />
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon" style="min-width:100px;"><i class="" aria-hidden="true">First Name</i></span>
+                        <input type="text" class="form-control" formControlName="firstName" name="firstName" />
+                    </div>
+
+                    <div class="alert alert-danger getSmallerMessage" *ngIf="!rForm.controls['firstName'].valid && rForm.controls['firstName'].touched" >You must specify first name!</div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon" style="min-width:100px;"><i class="" aria-hidden="true">Last Name</i></span>
+                        <input type="text" class="form-control" formControlName="lastName" name="lastName" />
+                    </div>
+                    <div class="alert alert-danger getSmallerMessage" *ngIf="!rForm.controls['lastName'].valid && rForm.controls['lastName'].touched" >You must specify last name!</div>
+                    
+
+                    <div class="input-group">
+                        <span class="input-group-addon" style="min-width:100px;"><i class="" aria-hidden="true">Username</i></span>
+                        <input type="text" class="form-control" formControlName="userName" name="userName" />
+                    </div>
+                    <div class="alert alert-danger getSmallerMessage" *ngIf="!rForm.controls['userName'].valid && rForm.controls['userName'].touched">You must specify username!</div>
+
+                  
+
+                     <div class="input-group" style="display: none;">
+                        <span class="input-group-addon" style="min-width:100px;"><i class="" aria-hidden="true">   </i></span>
+                        <input type="text" class="form-control" formControlName="isDeleted" name="isDeleted" />
+                    </div>
+                    <div class="alert alert-danger getSmallerMessage" *ngIf="!rForm.controls['isDeleted'].valid && rForm.controls['isDeleted'].touched" style="padding-right:50% !important;">You must specify is address deleted or not!</div>
+                   
+                    
+                    <div *ngIf="idUser === null">
+                        <button type="submit" class="btn btn-success buttonClass" value="Submit Form" [disabled]="!rForm.valid" routerLink="/users" style="width: 52%;float: left;border-radius: 20px;" (click)="onSubmit(rForm.value)">Submit form</button>
+                    </div>
+                    <div *ngIf="idUser !== null">
+                        <button type="submit" class="btn btn-success buttonClass" value="Submit Form" [disabled]="!rForm.dirty" style="width: 52%;float: left;border-radius: 20px;" routerLink="/users" (click)="onSubmit(rForm.value)">Save form</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <ng-template #forminfo>
+        
+    </ng-template>
+   
+
+</div>

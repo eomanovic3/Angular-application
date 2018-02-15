@@ -1,0 +1,16 @@
+C:\Users\AP\source\repos\newApp\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\AP\source\repos\newApp\UnitTests\obj\Debug\UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\UnitTests.dll.config
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\DAL.dll
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\DC.dll
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\DAL.pdb
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\DAL.dll.config
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\DC.pdb
+C:\Users\AP\source\repos\newApp\UnitTests\bin\Debug\DC.dll.config
+C:\Users\AP\source\repos\newApp\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\AP\source\repos\newApp\UnitTests\obj\Debug\UnitTests.pdb

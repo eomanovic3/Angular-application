@@ -1,0 +1,5 @@
+C:\Users\AP\source\repos\newApp\newAppLibrary\bin\Debug\newAppLibrary.dll
+C:\Users\AP\source\repos\newApp\newAppLibrary\bin\Debug\newAppLibrary.pdb
+C:\Users\AP\source\repos\newApp\newAppLibrary\obj\Debug\newAppLibrary.csproj.CoreCompileInputs.cache
+C:\Users\AP\source\repos\newApp\newAppLibrary\obj\Debug\newAppLibrary.dll
+C:\Users\AP\source\repos\newApp\newAppLibrary\obj\Debug\newAppLibrary.pdb

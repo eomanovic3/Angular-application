@@ -1,0 +1,62 @@
+<ArrayOfAddress xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/DAL">
+  <Address>
+    <Address1>First address</Address1>
+    <Address2>Second address</Address2>
+    <AddressId>1</AddressId>
+    <IsDeleted>false</IsDeleted>
+    <UserDetail i:nil="true" />
+    <UserId>1</UserId>
+    <Zip i:nil="true" />
+    <ZipId>2</ZipId>
+  </Address>
+  <Address>
+    <Address1>Dzentica Cikma 1</Address1>
+    <Address2>No Address2</Address2>
+    <AddressId>2057</AddressId>
+    <IsDeleted>false</IsDeleted>
+    <UserDetail i:nil="true" />
+    <UserId>1</UserId>
+    <Zip i:nil="true" />
+    <ZipId>2</ZipId>
+  </Address>
+  <Address>
+    <Address1>fd</Address1>
+    <Address2>No Address2</Address2>
+    <AddressId>2058</AddressId>
+    <IsDeleted>true</IsDeleted>
+    <UserDetail i:nil="true" />
+    <UserId>1</UserId>
+    <Zip i:nil="true" />
+    <ZipId>2</ZipId>
+  </Address>
+  <Address>
+    <Address1>Dzentica Cikma 1</Address1>
+    <Address2>No Address2</Address2>
+    <AddressId>2059</AddressId>
+    <IsDeleted>true</IsDeleted>
+    <UserDetail i:nil="true" />
+    <UserId>1</UserId>
+    <Zip i:nil="true" />
+    <ZipId>2</ZipId>
+  </Address>
+  <Address>
+    <Address1>jedan</Address1>
+    <Address2>h</Address2>
+    <AddressId>2060</AddressId>
+    <IsDeleted>true</IsDeleted>
+    <UserDetail i:nil="true" />
+    <UserId>1</UserId>
+    <Zip i:nil="true" />
+    <ZipId>2</ZipId>
+  </Address>
+  <Address>
+    <Address1>sfdfa</Address1>
+    <Address2>k</Address2>
+    <AddressId>2061</AddressId>
+    <IsDeleted>false</IsDeleted>
+    <UserDetail i:nil="true" />
+    <UserId>1</UserId>
+    <Zip i:nil="true" />
+    <ZipId>3</ZipId>
+  </Address>
+</ArrayOfAddress>

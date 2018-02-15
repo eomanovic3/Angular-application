@@ -1,0 +1,9 @@
+﻿
+@media (max-width: 1145px) {
+    .buttonClass {
+        display: inline-block;
+    }
+}
+.getSmallerMessage{
+    width:52% !important; 
+}

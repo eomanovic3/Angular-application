@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+<div style="text-align:center; padding-left:33%;">
+    <!---->
+    <div *ngIf='rForm'>
+        <form [formGroup]="rForm" class="address-form" (ngSubmit)="onSubmit(rForm.value)">
+
+            <div class="form-container">
+                <div class="row columns">
+
+                    <div class="input-group" style="display: none;">
+                        <span class="input-group-addon" style="min-width:100px;"><i class="" aria-hidden="true">Address Id</i></span>
+                        <input type="text" class="form-control" formControlName="addressId" name="addressId" />
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon" style="min-width:100px;"><i class="" aria-hidden="true">Address 1</i></span>
+                        <input type="text" class="form-control" formControlName="address1" name="address1" />
+                    </div>
+
+                    <div class="alert alert-danger getSmallerMessage" *ngIf="!rForm.controls['address1'].valid && rForm.controls['address1'].touched">You must specify first address!</div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon" style="min-width:100px;"><i class="" aria-hidden="true">Address 2</i></span>
+                        <input type="text" class="form-control" formControlName="address2" name="address2" />
+                    </div>
+                    <div class="alert alert-danger getSmallerMessage" *ngIf="!rForm.controls['address2'].valid && rForm.controls['address2'].touched">You must specify second address!</div>
+
+
+                    <div class="input-group">
+                        <span class="input-group-addon " style="min-width:100px;"><i class="" aria-hidden="true">  User  </i></span>
+                        <select formControlName="userId" name="userId" required class="form-control">
+                            <option disabled selected value>Select a User &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9660;</option>
+                            <option *ngFor="let user of users" [ngValue]="user.userId"> {{user.firstName}} {{user.lastName}} </option>
+                        </select>
+                    </div>
+                    <div class="alert alert-danger getSmallerMessage" *ngIf="rForm.get('userId').hasError('required') && rForm.get('userId').touched">You must specify user!</div>
+
+
+                        <div class="input-group" style="display: none;">
+                            <span class="input-group-addon" style="min-width:100px;"><i class="" aria-hidden="true">   </i></span>
+                            <input type="text" class="form-control" formControlName="isDeleted" name="isDeleted" />
+                        </div>
+                        <div class="alert" *ngIf="!rForm.controls['isDeleted'].valid && rForm.controls['isDeleted'].touched" >You must specify is address deleted or not!</div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon " style="min-width:100px;"><i class="" aria-hidden="true">  Zip  </i></span>
+                            <select formControlName="zipId" name="zipId" required class="form-control">
+                                <option disabled selected value>Select a Zip &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9660;</option>
+                                <option *ngFor="let zip of zips" [ngValue]="zip.zipId"> {{zip.zipCode}} </option>
+                            </select>
+                        </div>
+                        <div class="alert alert-danger getSmallerMessage" *ngIf="!rForm.controls['zipId'].valid && rForm.controls['zipId'].touched">You must specify zip code!</div>
+                        <div *ngIf="idAddress === null">
+                            <button type="button" class="btn btn-success buttonClass" value="Submit Form" [disabled]="!rForm.valid" routerLink="/addresses" style="width: 52%;float: left;border-radius: 20px;" (click)="onSubmit(rForm.value)">Submit form</button>
+                        </div>
+                        <div *ngIf="idAddress !== null">
+                            <button type="submit" class="btn btn-success buttonClass" value="Submit Form" [disabled]="!rForm.dirty" style="width: 52%;float: left;border-radius: 20px;" routerLink="/addresses" (click)="onSubmit(rForm.value)">Save form</button>
+                        </div>
+                    </div>
+            </div>
+        </form>
+
+    </div>
+</div>

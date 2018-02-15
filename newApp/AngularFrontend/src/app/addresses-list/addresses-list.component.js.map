@@ -1,0 +1,1 @@
+{"version":3,"file":"addresses-list.component.js","sourceRoot":"","sources":["addresses-list.component.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,wCAAkD;AAOlD,IAAa,sBAAsB,GAAnC;IAEE,gBAAgB,CAAC;IAEjB,QAAQ;IACR,CAAC;CAEF,CAAA;AAPY,sBAAsB;IALlC,gBAAS,CAAC;QACT,QAAQ,EAAE,oBAAoB;QAC9B,WAAW,EAAE,iCAAiC;QAC9C,SAAS,EAAE,CAAC,gCAAgC,CAAC;KAC9C,CAAC;;GACW,sBAAsB,CAOlC;AAPY,wDAAsB"}

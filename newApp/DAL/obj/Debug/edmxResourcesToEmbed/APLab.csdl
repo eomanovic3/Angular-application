@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="APLABModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ZipId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.Fk_User_Address_UserId" FromRole="Address" ToRole="User" />
+    <NavigationProperty Name="Zip" Relationship="Self.Fk_Zip_Address_ZipId" FromRole="Address" ToRole="Zip" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountyId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Zips" Relationship="Self.Fk_City_Zip_CityId" FromRole="City" ToRole="Zip" />
+    <NavigationProperty Name="County" Relationship="Self.Fk_County_City_CountyId" FromRole="City" ToRole="County" />
+  </EntityType>
+  <EntityType Name="County">
+    <Key>
+      <PropertyRef Name="CountyId" />
+    </Key>
+    <Property Name="CountyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StateId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cities" Relationship="Self.Fk_County_City_CountyId" FromRole="County" ToRole="City" />
+    <NavigationProperty Name="State" Relationship="Self.Fk_State_County_StateId" FromRole="County" ToRole="State" />
+  </EntityType>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="EmailId" />
+    </Key>
+    <Property Name="EmailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsPrimary" Type="Boolean" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.Fk_User_Email_UserId" FromRole="Email" ToRole="User" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Counties" Relationship="Self.Fk_State_County_StateId" FromRole="State" ToRole="County" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Addresses" Relationship="Self.Fk_User_Address_UserId" FromRole="User" ToRole="Address" />
+    <NavigationProperty Name="Emails" Relationship="Self.Fk_User_Email_UserId" FromRole="User" ToRole="Email" />
+  </EntityType>
+  <EntityType Name="Zip">
+    <Key>
+      <PropertyRef Name="ZipId" />
+    </Key>
+    <Property Name="ZipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Addresses" Relationship="Self.Fk_Zip_Address_ZipId" FromRole="Zip" ToRole="Address" />
+    <NavigationProperty Name="City" Relationship="Self.Fk_City_Zip_CityId" FromRole="Zip" ToRole="City" />
+  </EntityType>
+  <Association Name="Fk_User_Address_UserId">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Zip_Address_ZipId">
+    <End Role="Zip" Type="Self.Zip" Multiplicity="1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zip">
+        <PropertyRef Name="ZipId" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="ZipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_City_Zip_CityId">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Zip" Type="Self.Zip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Zip">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_County_City_CountyId">
+    <End Role="County" Type="Self.County" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="County">
+        <PropertyRef Name="CountyId" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="CountyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_State_County_StateId">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="County" Type="Self.County" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="County">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_User_Email_UserId">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Email" Type="Self.Email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="APLABEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="Self.Address" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="Counties" EntityType="Self.County" />
+    <EntitySet Name="Emails" EntityType="Self.Email" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Zips" EntityType="Self.Zip" />
+    <AssociationSet Name="Fk_User_Address_UserId" Association="Self.Fk_User_Address_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Zip_Address_ZipId" Association="Self.Fk_Zip_Address_ZipId">
+      <End Role="Zip" EntitySet="Zips" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_City_Zip_CityId" Association="Self.Fk_City_Zip_CityId">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Zip" EntitySet="Zips" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_County_City_CountyId" Association="Self.Fk_County_City_CountyId">
+      <End Role="County" EntitySet="Counties" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_State_County_StateId" Association="Self.Fk_State_County_StateId">
+      <End Role="State" EntitySet="States" />
+      <End Role="County" EntitySet="Counties" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_User_Email_UserId" Association="Self.Fk_User_Email_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Email" EntitySet="Emails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
